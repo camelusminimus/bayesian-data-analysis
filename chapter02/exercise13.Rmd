@@ -1,0 +1,68 @@
+---
+title: "Chapter 02 -- Exercise13"
+author: "Jan Kraemer"
+date: "2 May 2019"
+output: 
+  html_document: default
+  github_document: default
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+library(tibble)
+library(kableExtra)
+
+knitr::opts_chunk$set(echo = TRUE)
+table_colnames <- c("Year", "Fatal accidents", "Passenger deaths", "Death rate")
+table_values <-
+  tribble(~year, ~fatal_accident_count, ~fatalities_count, ~fatality_rate,
+          1976, 24, 734, 0.19,
+          1977, 25, 516, 0.12,
+          1978, 31, 754, 0.15,
+          1979, 31, 877, 0.16,
+          1980, 22, 814, 0.14,
+          1981, 21, 362, 0.06,
+          1982, 26, 764, 0.13,
+          1983, 20, 809, 0.13,
+          1984, 16, 223, 0.03,
+          1985, 22, 1066, 0.15)
+
+```
+
+## The Question
+
+
+Discrete data: The Table gives the number of fatal accidents and deaths on scheduled
+airline flights per year over a ten-year period. We use these data as a numerical example
+for fitting discrete data models.
+
+a) Assume that the numbers of fatal accidents in each year are independent with a
+    $Poisson(\theta)$ distribution. Set a prior distribution for $\theta$ and determine the posterior
+    distribution based on the data from 1976 through 1985. Under this model, give a $95\%$
+    predictive interval for the number of fatal accidents in 1986. You can use the normal
+    approximation to the gamma and Poisson or compute using simulation.
+b) Assume that the numbers of fatal accidents in each year follow independent Poisson
+    distributions with a constant rate and an exposure in each year proportional to the
+    number of passenger miles flown. Set a prior distribution for $\theta$ and determine the
+    posterior distribution based on the data for 1976–1985. (Estimate the number of
+    passenger miles flown in each year by dividing the appropriate columns of the Table
+    and ignoring round-off errors.) Give a $95\%$ predictive interval for the number of fatal
+    accidents in 1986 under the assumption that 8 * 1011 passenger miles are flown that
+    year.
+c) Repeat (a) above, replacing ‘fatal accidents’ with ‘passenger deaths.’
+d) Repeat (b) above, replacing ‘fatal accidents’ with ‘passenger deaths.’
+e) In which of the cases (a)–(d) above does the Poisson model seem more or less reasonable? 
+    Why? Discuss based on general principles, without specific reference to the
+    numbers in the Table.
+
+Incidentally, in 1986, there were 22 fatal accidents, 546 passenger deaths, and a death rate of 0.06 per 100 million miles flown.
+
+
+### The Table
+```{r ex_table}
+table_values %>%
+  kable(col.names=table_colnames) %>%
+  kable_styling(full_width = F)
+```
+
+

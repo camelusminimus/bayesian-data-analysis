@@ -1,0 +1,21 @@
+---
+title: "Chapter 02 -- Exercise01"
+author: "Jan Kraemer"
+date: "2 May 2019"
+output: 
+  html_document: default
+  github_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## The Question
+
+Posterior inference: suppose you have a $Beta(4, 4)$ prior distribution on the probability $\theta$
+that a coin will yield a ‘head’ when spun in a specified manner. The coin is independently
+spun ten times, and ‘heads’ appear fewer than 3 times. You are not told how many heads
+were seen, only that the number is less than 3. Calculate your exact posterior density
+(up to a proportionality constant) for $\theta$ and sketch it.
+
